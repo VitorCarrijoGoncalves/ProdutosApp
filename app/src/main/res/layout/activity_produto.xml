@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activities.ActivityProduto">
+    
+    <EditText
+        android:id="@+id/txtNomeProduto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="Nome:" /> <!-- match_parent = wrap_content = o tanto que precisa -->
+    
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="10dp" />
+    
+    <EditText
+        android:id="@+id/txtQtdeProduto"
+        android:layout_width="match_parent"
+        android:hint="Quantidade desejada:"
+        android:inputType="numberSigned"
+        android:layout_height="wrap_content" /> <!-- numberSigned = Apenas números positivos-->
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="10dp" />
+
+    <EditText
+        android:id="@+id/txtPrecoProduto"
+        android:hint="Preço do Produto"
+        android:inputType="numberDecimal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" /> <!-- numberDecimal = Aceita valor com vírgula-->
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="25dp" />
+
+    <Button
+        android:id="@+id/btnSalvarProduto"
+        android:layout_width="match_parent"
+        android:text="Salvar"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>
