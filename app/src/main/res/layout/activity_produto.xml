@@ -6,6 +6,17 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".activities.ActivityProduto">
+
+    <EditText
+        android:id="@+id/txtIdProduto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberSigned"
+        android:hint="Código de Barras:" /> <!-- match_parent = wrap_content = o tanto que precisa -->
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="10dp" />
     
     <EditText
         android:id="@+id/txtNomeProduto"
