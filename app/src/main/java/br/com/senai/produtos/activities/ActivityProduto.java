@@ -28,10 +28,10 @@ public class ActivityProduto extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_produto);
 
-        txtIdProduto = (EditText) findViewById(R.id.txtIdProduto);
-        txtNomeProduto = (EditText) findViewById(R.id.txtNomeProduto);
-        txtQtdeProduto = (EditText) findViewById(R.id.txtQtdeProduto);
-        txtPrecoProduto = (EditText) findViewById(R.id.txtPrecoProduto);
+        txtIdProduto = (EditText) findViewById(R.id.edtIdProduto);
+        txtNomeProduto = (EditText) findViewById(R.id.edtNomeProduto);
+        txtQtdeProduto = (EditText) findViewById(R.id.edtQtdeProduto);
+        txtPrecoProduto = (EditText) findViewById(R.id.edtPrecoProduto);
 
         btnSalvarProduto = (Button) findViewById(R.id.btnSalvarProduto);
 

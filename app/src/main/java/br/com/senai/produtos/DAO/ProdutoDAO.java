@@ -1,7 +1,12 @@
 package br.com.senai.produtos.DAO;
 
 import android.content.ContentValues;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import br.com.senai.produtos.dbhelper.ConexaoSQlite;
 import br.com.senai.produtos.model.Produto;
@@ -33,9 +38,50 @@ public class ProdutoDAO {
 
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            if (db != null) {
+                db.close();
+            }
         }
 
         return 0;
+
+    }
+
+    public List<Produto> getListaProdutosDAO() {
+        List<Produto> listProdutos = new ArrayList<>();
+        SQLiteDatabase db = null;
+        Cursor cursor;
+
+        String query = "SELECT * FROM produto";
+
+        try {
+
+            // Leitura do BD
+            db = this.conexaoSQlite.getReadableDatabase();
+
+            cursor = db.rawQuery(query, null);
+
+            if (cursor.moveToFirst()) {
+
+                do {
+
+                } while (cursor.moveToNext());
+
+            }
+
+        } catch (Exception e) {
+
+            Log.d("Erro Lista de Produtos", "Erro ao retornar os produtos");
+            return null;
+
+        } finally {
+            if (db != null) {
+                db.close();
+            }
+        }
+
+        return listProdutos;
 
     }
 

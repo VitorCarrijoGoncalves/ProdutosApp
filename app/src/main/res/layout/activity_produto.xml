@@ -8,7 +8,7 @@
     tools:context=".activities.ActivityProduto">
 
     <EditText
-        android:id="@+id/txtIdProduto"
+        android:id="@+id/edtIdProduto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="numberSigned"
@@ -19,7 +19,7 @@
         android:layout_height="10dp" />
     
     <EditText
-        android:id="@+id/txtNomeProduto"
+        android:id="@+id/edtNomeProduto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
@@ -30,7 +30,7 @@
         android:layout_height="10dp" />
     
     <EditText
-        android:id="@+id/txtQtdeProduto"
+        android:id="@+id/edtQtdeProduto"
         android:layout_width="match_parent"
         android:hint="Quantidade desejada:"
         android:inputType="numberSigned"
@@ -41,7 +41,7 @@
         android:layout_height="10dp" />
 
     <EditText
-        android:id="@+id/txtPrecoProduto"
+        android:id="@+id/edtPrecoProduto"
         android:hint="Preço do Produto"
         android:inputType="numberDecimal"
         android:layout_width="match_parent"
