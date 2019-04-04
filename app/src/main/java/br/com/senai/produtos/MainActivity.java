@@ -1,7 +1,6 @@
 
 package br.com.senai.produtos;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,9 +9,7 @@ import android.widget.Button;
 
 import br.com.senai.produtos.activities.ActivityProduto;
 import br.com.senai.produtos.activities.ListarProdutosActivity;
-import br.com.senai.produtos.controller.ProdutoCtrl;
 import br.com.senai.produtos.dbhelper.ConexaoSQlite;
-import br.com.senai.produtos.model.Produto;
 
 public class MainActivity extends AppCompatActivity {
 

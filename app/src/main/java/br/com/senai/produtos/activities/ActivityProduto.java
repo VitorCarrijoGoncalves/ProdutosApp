@@ -7,7 +7,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import br.com.senai.produtos.R;
 import br.com.senai.produtos.controller.ProdutoCtrl;
 import br.com.senai.produtos.dbhelper.ConexaoSQlite;
 import br.com.senai.produtos.model.Produto;

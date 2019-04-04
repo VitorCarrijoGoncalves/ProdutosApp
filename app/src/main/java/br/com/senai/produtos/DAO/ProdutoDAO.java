@@ -64,7 +64,17 @@ public class ProdutoDAO {
 
             if (cursor.moveToFirst()) {
 
+                Produto produtoTemporario = null;
+
                 do {
+
+                    produtoTemporario = new Produto();
+                    produtoTemporario.setId(cursor.getLong(0));
+                    produtoTemporario.setNome(cursor.getString(1));
+                    produtoTemporario.setQuantidadeEmEstoque(cursor.getInt(2));
+                    produtoTemporario.setPreco(cursor.getDouble(3));
+
+                    listProdutos.add(produtoTemporario);
 
                 } while (cursor.moveToNext());
 
