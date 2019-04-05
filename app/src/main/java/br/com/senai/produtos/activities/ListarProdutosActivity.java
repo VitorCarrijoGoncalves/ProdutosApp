@@ -2,7 +2,11 @@ package br.com.senai.produtos.activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,6 +37,18 @@ public class ListarProdutosActivity extends AppCompatActivity {
         this.adapterListaProdutos = new AdapterListaProdutos(ListarProdutosActivity.this, this.produtoList);
 
         this.listViewProdutos.setAdapter(this.adapterListaProdutos);
+
+        this.listViewProdutos.setOnClickListener(new OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+
+                Produto produtoSelecionado = (Produto) adapterListaProdutos.getItem(position);
+
+                Toast.makeText(ListarProdutosActivity.this, "Produto: " + produtoSelecionado.getNome(), Toast.LENGTH_LONG).show();
+
+            }
+        });
 
     }
 }
