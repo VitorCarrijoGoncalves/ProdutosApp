@@ -23,4 +23,8 @@ public class ProdutoCtrl {
         return this.produtoDAO.getListaProdutosDAO();
     }
 
+    public boolean excluirProdutoCtrl(long idProduto) {
+        return this.produtoDAO.excluirProdutoDAO(idProduto);
+    }
+
 }

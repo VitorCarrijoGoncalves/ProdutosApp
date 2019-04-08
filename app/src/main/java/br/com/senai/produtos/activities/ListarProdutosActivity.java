@@ -1,6 +1,8 @@
 package br.com.senai.produtos.activities;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
@@ -29,7 +31,7 @@ public class ListarProdutosActivity extends AppCompatActivity {
         setContentView(R.layout.activity_listar_produtos);
 
         // Buscar os produtos do banco
-        ProdutoCtrl produtoCtrl = new ProdutoCtrl(ConexaoSQlite.getInstance(ListarProdutosActivity.this));
+        final ProdutoCtrl produtoCtrl = new ProdutoCtrl(ConexaoSQlite.getInstance(ListarProdutosActivity.this));
         produtoList = produtoCtrl.getListaProdutosCtrl();
 
         this.produtoList = new ArrayList<>();
@@ -40,12 +42,52 @@ public class ListarProdutosActivity extends AppCompatActivity {
 
         this.listViewProdutos.setOnClickListener(new OnItemClickListener() {
 
+            // Método que implementa um modal de escolhas para o usuário
+            // Com os botôes editar, excluir e cancelar
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
 
-                Produto produtoSelecionado = (Produto) adapterListaProdutos.getItem(position);
+                final Produto produtoSelecionado = (Produto) adapterListaProdutos.getItem(position);
 
-                Toast.makeText(ListarProdutosActivity.this, "Produto: " + produtoSelecionado.getNome(), Toast.LENGTH_LONG).show();
+                AlertDialog.Builder janelaDeEscolha = new AlertDialog.Builder(ListarProdutosActivity.this);
+
+                janelaDeEscolha.setTitle("Escolha: ");
+                janelaDeEscolha.setMessage("O que deseja fazer com o produto selecionado? ");
+
+                janelaDeEscolha.setNeutralButton("Cancelar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+
+                janelaDeEscolha.setNegativeButton("Excluir", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        boolean excluiu = produtoCtrl.excluirProdutoCtrl(produtoSelecionado.getId());
+
+                        dialog.cancel();
+
+                        if (excluiu) {
+                            Toast.makeText(ListarProdutosActivity.this,"Produto excluído com sucesso", Toast.LENGTH_LONG).show();
+                        } else {
+                            Toast.makeText(ListarProdutosActivity.this,"Erro ao excluir o produto", Toast.LENGTH_LONG).show();
+                        }
+
+                    }
+                });
+
+                janelaDeEscolha.setPositiveButton("Editar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+
+                janelaDeEscolha.create().show();
+
+                //Toast.makeText(ListarProdutosActivity.this, "Produto: " + produtoSelecionado.getNome(), Toast.LENGTH_LONG).show();
 
             }
         });
