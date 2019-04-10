@@ -45,7 +45,7 @@ public class ListarProdutosActivity extends AppCompatActivity {
             // Método que implementa um modal de escolhas para o usuário
             // Com os botôes editar, excluir e cancelar
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+            public void onItemClick(AdapterView<?> adapterView, View view, final int position, long id) {
 
                 final Produto produtoSelecionado = (Produto) adapterListaProdutos.getItem(position);
 
@@ -70,6 +70,10 @@ public class ListarProdutosActivity extends AppCompatActivity {
                         dialog.cancel();
 
                         if (excluiu) {
+
+
+                            adapterListaProdutos.removerProduto(position);
+
                             Toast.makeText(ListarProdutosActivity.this,"Produto excluído com sucesso", Toast.LENGTH_LONG).show();
                         } else {
                             Toast.makeText(ListarProdutosActivity.this,"Erro ao excluir o produto", Toast.LENGTH_LONG).show();
